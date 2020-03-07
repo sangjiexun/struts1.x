@@ -15,10 +15,10 @@ lastest 1.3
    
    1. 使用任意一种服务器即可 </p>生产环境服务器统一由Docker中Weblogic集中部署</p>
    2. 开发环境服务器TomEE or TomCat 如加入EJB则统一用 JBoss(TomXX系列不支持EJB)</p>3
-   3. Myeclipse：用于生成Action与From</p>
+   3. myEclipse：用于生成Action与From</p>
    4. IDEA：用于Test及最终部署</p>
    5. 数据库统一Oracle12c版本
-   6. 数据库连开发环境JDBC 生产后改用 JDNI
+   6. 数据库连开发环境JDBC 生产后改用 JNDI
    7. CRUD事务用存储过程创建
    8. SQL涉及多表联查、带参函数功能
    9. 业务使用后记得关闭并返还信息区分

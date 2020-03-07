@@ -2,6 +2,8 @@
 <!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 
 <struts-config>
+
+
   <form-beans >
     <form-bean name="userLoginForm" type="form.UserLoginForm" />
 
@@ -19,11 +21,11 @@
       type="action.UserLoginAction"
       cancellable="true">
       <forward name="success" path="/userLoginSuccess.jsp" />
-      <forward name="failure" path="/index.jsp" />
+      <forward name="failure" path="/error.jsp" />
     </action>
 
   </action-mappings>
 
-  <message-resources parameter="com.yourcompany.struts.ApplicationResources" />
+ <!-- <message-resources parameter="message" />-->
 </struts-config>
 
