@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="struts1.x" />
+        <module name="kddiHansoku" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="10">
-      <module name="struts1.x" target="8" />
+      <module name="kddiHansoku" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

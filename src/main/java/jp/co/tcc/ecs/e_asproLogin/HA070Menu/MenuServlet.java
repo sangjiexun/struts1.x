@@ -5,16 +5,17 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jp.co.tcc.ecs.e_asproComm.common.CommonServlet;
 import jp.co.tcc.ecs.e_asproLogin.HA070Menu.MenuHelper;
-import jp.co.tcc.ecs.e_asproLogin.Login.LoginService;
+import jp.co.tcc.ecs.e_asproLogin.Login.*;
 import jp.co.tcc.ecs.e_asproComm.common.Constants;
 import jp.co.tcc.ecs.e_asproUser.User.User;
-import jp.co.tcc.ecs.e_asproLogin.common.CommonServlet;
+
 import jp.co.tcc.ecsolution.framework.otherUtils.StringUtil;
 import java.util.HashMap;
 import java.util.Vector;
 
-public class MenuServlet extends CommonServlet{
+public class MenuServlet extends CommonServlet {
 
 	private static final long serialVersionUID = 1L;
 	private static final String SUC_MENU_JSP = "menu/menu.jsp";
@@ -41,7 +42,7 @@ public class MenuServlet extends CommonServlet{
 //			cok.setMaxAge(0);
 //			cok.setPath(Constants.URL_BASE);
 //			response.addCookie(cok);
-			new LoginService().removeAllCookies(response);
+			//new LoginService().removeAllCookies(response);
 // replaced by K.Okuda 2015/04/27 end
 			return "/onLogin.jsp";
 		}

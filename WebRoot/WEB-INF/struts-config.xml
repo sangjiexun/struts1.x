@@ -25,7 +25,8 @@
     </action>
 
   </action-mappings>
+  <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
 
- <!-- <message-resources parameter="message" />-->
+  <!-- <message-resources parameter="message" />-->
 </struts-config>
 

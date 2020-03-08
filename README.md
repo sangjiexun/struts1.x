@@ -9,7 +9,7 @@
 lastest 1.3
 備考欄
 
-<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=1)" width="80%" color=#987cb9 SIZE=3>
+<HR>
   [参考で](https://www.genuitec.com/docs/web-apps/java-ee-web/creating-web-application-struts-1-x/ )
 
    
@@ -23,3 +23,11 @@ lastest 1.3
    8. SQL涉及多表联查、带参函数功能
    9. 业务使用后记得关闭并返还信息区分
    10. 页面：欢迎页、登录、注册、库存管理、出入库、订单打印、Excel报表生成、PDF报表生成
+
+### 备注：由于这个是内部项目已经改造——原项目是采用分层包部署，本项目贡献出只为大家学习及面试官查看用
+#### 分别是 
+> doc包（静态资料包）
+> login包
+> service包
+> 分别放在不同服务器环境中
+> 数据库实现了分库分表 

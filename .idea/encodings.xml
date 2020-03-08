@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/WebRoot/css/main.css" charset="Shift_JIS" />
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/WebRoot/css/main.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/jp/co/tcc/ecs/e_asproLogin/CC030SearchCustomer/SearchCustomerBean.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/jp/co/tcc/ecs/e_asproLogin/CC030SearchCustomer/SearchCustomerServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/jp/co/tcc/ecs/e_asproLogin/Login/LoginBean.java" charset="Shift_JIS" />
+    <file url="file://$PROJECT_DIR$/src/main/java/jp/co/tcc/ecs/e_asproLogin/Login/LoginService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/jp/co/tcc/ecs/e_asproShip/SY141ShipFixUP/ShipFixUPBean.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

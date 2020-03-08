@@ -6,9 +6,11 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
+import jp.co.tcc.ecs.e_asproUser.*;
 import jp.co.tcc.ecs.e_asproUser.User.User;
-import jp.co.tcc.ecsolution.framework.Constants;
+import jp.co.tcc.ecsolution.framework.*;
 import jp.co.tcc.ecsolution.framework.exception.FrameworkException;
+
 
 /**
  * [概 要]:ユーザーメニューツールクラス<br>
@@ -33,9 +35,9 @@ public class MenuHelper {
 		try {
 			
 			MenuDAO menuDao = new MenuDAO();
-			menuList = menuDao.getLeftMenu(user);
-			topMenuList = menuDao.getTopMenu(user);
-		} catch (FrameworkException e) {
+//			menuList = menuDao.getLeftMenu(user);
+//			topMenuList = menuDao.getTopMenu(user);
+		} catch (Exception e) {
 			throw e;
 		}finally{
 			
@@ -53,8 +55,8 @@ public class MenuHelper {
 		try {
 			
 			MenuDAO menuDao = new MenuDAO();
-			topMenuList = menuDao.getTopMenu(user);
-		} catch (FrameworkException e) {
+			//topMenuList = menuDao.getTopMenu(user);
+		} catch (Exception e) {
 			throw e;
 		}finally{
 			
@@ -66,7 +68,7 @@ public class MenuHelper {
 	 * [概 要]:目前のユーザーを取得し、メニューリストを表示しJava Sessionに保存する<br>
 	 * [備 考]:メニューリストにJava Sessionは存在すれば、メニューリストに直接戻り、DB操作を実行しない。
 	 * @param user ユーザープロジェクト
-	 * @param javaSession Java Session
+	 * @param //javaSession Java Session
 	 * @return メニューリスト
 	 * @throws Exception 
 	 */

@@ -3,30 +3,23 @@
 */
 package jp.co.tcc.ecs.e_asproLogin.Login;
 
-import java.util.Map;
-import java.util.Vector;
+import jp.co.tcc.ecs.e_asproComm.common.*;
+import jp.co.tcc.ecs.e_asproLogin.HA080PasswordEntry.PasswordEntryServlet;
+import jp.co.tcc.ecs.e_asproUser.User.User;
+import jp.co.tcc.ecsolution.framework.otherUtils.DateUtil;
+import jp.co.tcc.ecsolution.framework.otherUtils.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import jp.co.tcc.ecs.e_asproComm.common.CommonDAO;
-import jp.co.tcc.ecs.e_asproLogin.common.CommonServlet;
-import jp.co.tcc.ecs.e_asproComm.common.InputChecker;
-import jp.co.tcc.ecs.e_asproComm.common.Properties;
-import jp.co.tcc.ecs.e_asproComm.common.Constants;
-import jp.co.tcc.ecs.e_asproComm.common.UUIDUtil;
-import jp.co.tcc.ecs.e_asproLogin.HA080PasswordEntry.PasswordEntryServlet;
-import jp.co.tcc.ecsolution.framework.otherUtils.DateUtil;
-import jp.co.tcc.ecsolution.framework.otherUtils.StringUtil;
-
-import jp.co.tcc.ecs.e_asproUser.User.User;
+import java.util.Map;
+import java.util.Vector;
 
 /**
- * [ŠT@—v]FƒƒOƒCƒ“‰æ–Ê‚ÌƒAƒNƒVƒ‡ƒ“‚Ìƒƒ\ƒbƒh‚ğ’è‹`‚·‚éƒNƒ‰ƒX.<br>
- * [à@–¾]FƒAƒNƒVƒ‡ƒ“‚Ìƒƒ\ƒbƒh‚ğ’è‹`‚·‚éB<br>
- * [”õ@l]F<br>
- *@’˜ìŒ :Toukei Computer Company Copyright (c) 2008<br>
+ * [ï¿½Tï¿½@ï¿½v]ï¿½Fï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½Ê‚ÌƒAï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½\ï¿½bï¿½hï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½X.<br>
+ * [ï¿½ï¿½ï¿½@ï¿½ï¿½]ï¿½Fï¿½Aï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½\ï¿½bï¿½hï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½B<br>
+ * [ï¿½ï¿½ï¿½@ï¿½l]ï¿½F<br>
+ *ï¿½@ï¿½ï¿½ï¿½ìŒ :Toukei Computer Company Copyright (c) 2008<br>
  * @author DHK<br>
  * @version 1.0<br>
  * @since 1.0<br>
@@ -42,7 +35,7 @@ public class LoginServlet extends CommonServlet {
 	private static final String SUC_SEARCH_ACT = "menu?strForwordFlg=1";
 
 // added by K.Okuda 2015/04/27 start
-	/** ƒŠƒNƒGƒXƒg‚É“n‚·ƒpƒXƒ[ƒh—LŒøŠúŠÔØ‚ê‚ÌƒAƒ‰[ƒgƒƒbƒZ[ƒW‚ÌƒL[ */
+	/** ï¿½ï¿½ï¿½Nï¿½Gï¿½Xï¿½gï¿½É“nï¿½ï¿½ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ÔØ‚ï¿½ÌƒAï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ÌƒLï¿½[ */
 	public static final String ATTRIBUTE_KEY_PASSWORD_ALERT_MSG = "passwordAlertMsg";
 // added by K.Okuda 2015/04/27 end
 
@@ -60,7 +53,7 @@ public class LoginServlet extends CommonServlet {
 		String strForwordFlg = StringUtil.nvl(request.getParameter("strForwordFlg"));
 		String returnStr = SUC_LOGIN_JSP;
 		if (Constants.LOGIN_SUBMIT.equals(strForwordFlg) == true) {
-			//ƒƒOƒCƒ“‰æ–Ê‚É‚ÄSubmit‚µ‚½ê‡‚Ìˆ—
+			//ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½Ê‚É‚ï¿½Submitï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Ìï¿½ï¿½ï¿½
 			returnStr = doInit(request, response, bean);	
 			if (OK_LOGIN_JSP.equals(returnStr)){
 				returnStr = doLoginSubmit(request, response, bean);
@@ -71,7 +64,7 @@ public class LoginServlet extends CommonServlet {
 		}
 		else{
 			setRequest2Bean(request, bean);
-			service.search(bean);
+			//service.search(bean);
 			request.setAttribute("bean", bean);
 			if(StringUtil.isNull(bean.getCoNo())){
 				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -82,7 +75,7 @@ public class LoginServlet extends CommonServlet {
 	}
 
 	/**
-	 * ƒƒOƒCƒ“‰æ–Ê‚Ì‰Šú•\¦ˆ—
+	 * ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½Ê‚Ìï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param request
 	 * @param response
 	 * @return
@@ -93,8 +86,8 @@ public class LoginServlet extends CommonServlet {
 		request.getSession().invalidate();
 		setRequest2Bean(request,bean);
 
-		service.search(bean);
-		//‰ïĞ\¬ƒ}ƒXƒ^‚ª“Ç‚ß‚È‚¢ê‡A‚Ü‚½‚Í‰ïĞNO‚ªã‹LˆÈŠO‚Í—áŠO(404 notFound‰æ–Ê•\¦‚Ö‘JˆÚj
+		//service.search(bean);
+		//ï¿½ï¿½Ğ\ï¿½ï¿½ï¿½}ï¿½Xï¿½^ï¿½ï¿½ï¿½Ç‚ß‚È‚ï¿½ï¿½ê‡ï¿½Aï¿½Ü‚ï¿½ï¿½Í‰ï¿½ï¿½NOï¿½ï¿½ï¿½ï¿½Lï¿½ÈŠOï¿½Í—ï¿½O(404 notFoundï¿½ï¿½Ê•\ï¿½ï¿½ï¿½Ö‘Jï¿½Új
 		if(StringUtil.isNull(bean.getCoNo())){
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			return null;
@@ -106,7 +99,7 @@ public class LoginServlet extends CommonServlet {
 	}
 	
 	/**
-	 * ƒƒOƒCƒ“‰æ–Ê‚Ìlogout
+	 * ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½Ê‚ï¿½logout
 	 * @param request
 	 * @param response
 	 * @return
@@ -117,7 +110,7 @@ public class LoginServlet extends CommonServlet {
 		HttpSession session = request.getSession();
 		LoginBean bean = new LoginBean();
 
-		// ‰Šú•\¦
+		// ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½
 		session.removeAttribute(Constants.LOGIN_USER);
 		
 		request.setAttribute("bean", bean);
@@ -125,7 +118,7 @@ public class LoginServlet extends CommonServlet {
 	}
 	
 	/**
-	 * ƒƒOƒCƒ“‰æ–Ê‚É‚ÄSubmitƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½ê‡‚Ìˆ—
+	 * ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½Ê‚É‚ï¿½Submitï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ê‡ï¿½Ìï¿½ï¿½ï¿½
 	 * @param request
 	 * @param response
 	 * @return
@@ -135,22 +128,22 @@ public class LoginServlet extends CommonServlet {
 			HttpServletResponse response,LoginBean bean) throws Exception {
 //		bean = (LoginBean)request.getAttribute("bean");
 //		setRequest2Bean(request,bean);
-		// ’P€–Ú“ü—Íƒ`ƒFƒbƒN
-		String strERR = this.CheckUtil(bean);
+		// ï¿½Pï¿½ï¿½ï¿½Ú“ï¿½ï¿½Íƒ`ï¿½Fï¿½bï¿½N
+		String strERR =  CheckUtil(bean);
 		if (Constants.EMPTY.equals(strERR) == false) {
 			bean.setStrErrMsg(strERR);
 			request.setAttribute("bean", bean);
 			return SUC_LOGIN_JSP;
 		}
-		//UID‚ÆPWD‚æ‚è”FØ‚ğs‚¤AŒÅ‘Ì¯•Ê”Ô†‚Í“o˜^‚µ‚È‚¢			
+		//UIDï¿½ï¿½PWDï¿½ï¿½ï¿½Fï¿½Ø‚ï¿½ï¿½sï¿½ï¿½ï¿½Aï¿½Å‘Ìï¿½ï¿½Ê”Ôï¿½ï¿½Í“oï¿½^ï¿½ï¿½ï¿½È‚ï¿½			
 		return doUserCdCert(request,response,false, bean);
 	}
 	
 	/**
-	 * USERCD‚ÆPWD‚æ‚è”FØ‚ğs‚¢‚¤
+	 * USERCDï¿½ï¿½PWDï¿½ï¿½ï¿½Fï¿½Ø‚ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½
 	 * @param bMobileUdp<br>
-	 *  True:ŒÅ‘Ì¯•Ê”Ô†‚ğXV‚·‚é<br>
-	 *  False:ŒÅ‘Ì¯•Ê”Ô†‚ğXV‚µ‚È‚¢  
+	 *  True:ï¿½Å‘Ìï¿½ï¿½Ê”Ôï¿½ï¿½ï¿½ï¿½Xï¿½Vï¿½ï¿½ï¿½ï¿½<br>
+	 *  False:ï¿½Å‘Ìï¿½ï¿½Ê”Ôï¿½ï¿½ï¿½ï¿½Xï¿½Vï¿½ï¿½ï¿½È‚ï¿½  
 	 * @param request
 	 * @param response
 	 * @return
@@ -160,13 +153,13 @@ public class LoginServlet extends CommonServlet {
 			HttpServletResponse response,boolean bMobileUdp,LoginBean bean) throws Exception {
 		HttpSession session = request.getSession();
 		
-		////ƒNƒ‰ƒCƒAƒ“ƒg‚ÌIPƒ`ƒFƒbƒN••Û@add 2011.09.12 k.sakakibara@begin
-		String remote_host = request.getRemoteAddr();//ƒNƒ‰ƒCƒAƒ“ƒgIPƒAƒhƒŒƒX  
+		////ï¿½Nï¿½ï¿½ï¿½Cï¿½Aï¿½ï¿½ï¿½gï¿½ï¿½IPï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½Ûï¿½ï¿½@add 2011.09.12 k.sakakibaraï¿½@begin
+		String remote_host = request.getRemoteAddr();//ï¿½Nï¿½ï¿½ï¿½Cï¿½Aï¿½ï¿½ï¿½gIPï¿½Aï¿½hï¿½ï¿½ï¿½X  
 		if(!AuthHelper.checkRemoteHost(bean.getCoNo(),bean.getUserCd(),remote_host)){
 			bean.setStrErrMsg(Properties.getMsg("ERROR.Login.002"));
 			return SUC_LOGIN_JSP;
 		}
-		////// add 2011.09.12 k.sakakibara@end
+		////// add 2011.09.12 k.sakakibaraï¿½@end
 		
 		Boolean result = AuthHelper.userPasswordCheck(bean.getCoNo(), 
 				bean.getUserCd(), 
@@ -185,7 +178,7 @@ public class LoginServlet extends CommonServlet {
 			User user = (User) request.getSession().getAttribute(
 					jp.co.tcc.ecsolution.framework.Constants.SESSION_USER);
 
-			//ƒZƒbƒVƒ‡ƒ“DB‚Ìì¬iŠi”[j
+			//ï¿½Zï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½DBï¿½Ìì¬ï¿½iï¿½iï¿½[ï¿½j
 			String sessionId = (String)request.getSession().getId();
 			String accessKey = UUIDUtil.getUUID();
 
@@ -206,7 +199,7 @@ public class LoginServlet extends CommonServlet {
 				service.addCookie(response, LoginService.CookieKey.accessKey, accessKey);
 // replaced by K.Okuda 2015/04/27 end
 			}
-			//2011.07.01 add K.sakakibara ƒƒbƒN‚³‚ê‚½ƒ†[ƒU[
+			//2011.07.01 add K.sakakibara ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½[ï¿½Uï¿½[
 			if (Constants.AUTH_USER_LOCK_TYPE_ERROR.equals(user.getLoginLockFlag())){
 				request.setAttribute("bean", bean);
 				bean.setStrErrMsg(Properties.getMsg("ERROR.Login.001"));
@@ -235,29 +228,29 @@ public class LoginServlet extends CommonServlet {
 					 StringUtil.nvl(user.getUseValidTimeEnd(),Constants.AUTH_DEFAULT_VALID_TIME_END))) {
 				return TIME_OUT_JSP;
 			}
-			// ˆø”‚ÌURL‚ªNULL‚Ìê‡Aƒƒjƒ…[‰æ–Ê‚ğ•\¦‚·‚é
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½NULLï¿½Ìê‡ï¿½Aï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½ï¿½Ê‚ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (bean.getStrURL() == null || Constants.EMPTY.equals(bean.getStrURL()) == true) {
 				return SUC_SEARCH_ACT;
 			} else {
-				// ˆø”‚ÌURL‚ªNULL‚Å‚Í‚È‚¢ê‡Aˆø”‚ÌURL‚Ö‘JˆÚ‚·‚é
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½NULLï¿½Å‚Í‚È‚ï¿½ï¿½ê‡ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½URLï¿½Ö‘Jï¿½Ú‚ï¿½ï¿½ï¿½
 				return bean.getStrURL();
 			}
 		} else {
-			// ƒf[ƒ^‚ª‚È‚¢ê‡‚ÍƒƒOƒCƒ“‰æ–Ê‚Ö–ß‚èAƒGƒ‰[ƒƒbƒZ[ƒW‚ğ•\¦‚µAˆ—‚ğI—¹‚·‚é
+			// ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½Íƒï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½Ê‚Ö–ß‚ï¿½Aï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			request.setAttribute("bean", bean);
 			return SUC_LOGIN_JSP;
 		}
 	}	
 
 	/** 
-	 * [ŠT —v]:ƒ`ƒFƒbƒNB<br>
-	 * [à –¾]:<br>
-	 * [”õ l]:
+	 * [ï¿½T ï¿½v]:ï¿½`ï¿½Fï¿½bï¿½Nï¿½B<br>
+	 * [ï¿½ï¿½ ï¿½ï¿½]:<br>
+	 * [ï¿½ï¿½ ï¿½l]:
 	 * @param bean LoginBean
 	 * @return String
 	 */
 	private String CheckUtil(LoginBean bean) {
-		// ƒ†[ƒU[ID
+		// ï¿½ï¿½ï¿½[ï¿½Uï¿½[ID
 		String loginUser = bean.getUserCd();
 		if (InputChecker.MustCheck(loginUser) == true) {
 			return Properties.getMsg("login.MSG004");
@@ -266,7 +259,7 @@ public class LoginServlet extends CommonServlet {
 				return Properties.getMsg("login.MSG005");
 			}
 		}
-		// ƒpƒXƒ[ƒh
+		// ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½h
 		String loginPass = bean.getPassword();
 		if (InputChecker.MustCheck(loginPass) == true) {
 			return Properties.getMsg("login.MSG006");

@@ -8,7 +8,7 @@
 <%@page import="jp.co.tcc.ecs.e_asproLogin.Login.LoginBean"%>
 <%@page import="jp.co.tcc.ecsolution.framework.otherUtils.StringUtil"%>
 <%
-	String actionURL = Constants.URL_BASE /*+ "/login"*/;
+	String actionURL = Constants.URL_BASE +"/login";
 	if (!request.isRequestedSessionIdFromCookie()) {
 		actionURL = response.encodeURL(actionURL);
 	}
@@ -83,7 +83,7 @@
 			}
 
 		%>
-		<b style="color: #ffa151"><%=strErrMsg%></b>
+		<b style="color: red"><%=strErrMsg%></b>
 		<br>
 		<CENTER>
 			<TABLE WIDTH="385" BORDER="0" CELLSPACING="0" CELLPADDING="0">

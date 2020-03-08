@@ -7,7 +7,8 @@ import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.tcc.ecs.e_asproLogin.common.CommonServlet;
+import jp.co.tcc.ecs.e_asproComm.common.CommonServlet;
+
 import jp.co.tcc.ecs.e_asproComm.common.Constants;
 import jp.co.tcc.ecsolution.framework.otherUtils.StringUtil;
 

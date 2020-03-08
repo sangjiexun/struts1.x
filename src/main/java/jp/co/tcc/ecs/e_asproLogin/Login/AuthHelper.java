@@ -1,19 +1,5 @@
 package jp.co.tcc.ecs.e_asproLogin.Login;
 
-import static jp.co.tcc.ecsolution.framework.otherUtils.StringUtil.*;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Formatter;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpSession;
-
 import jp.co.tcc.ecs.e_asproUser.User.User;
 import jp.co.tcc.ecs.e_asproUser.User.UserDAO;
 import jp.co.tcc.ecsolution.framework.Constants;
@@ -25,35 +11,44 @@ import jp.co.tcc.ecsolution.framework.logUtils.SuperLogger;
 import jp.co.tcc.ecsolution.framework.otherUtils.DateUtil;
 import jp.co.tcc.ecsolution.framework.otherUtils.StringUtil;
 
+import javax.servlet.http.HttpSession;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.*;
+
+import static jp.co.tcc.ecsolution.framework.otherUtils.StringUtil.nvl;
+
 /**
- * [ŠT —v]:Œ ŒÀƒc[ƒ‹ƒNƒ‰ƒX<br>
- * [à –¾]:Œ ŒÀ‚ğ”»’f‚·‚éŠÖ”‚ğ’ñ‹Ÿ‚·‚é<br>
- * [”õ l]:<br>
- * ’˜ìŒ : Copyright (c) 2008<br>
+ * [ï¿½T ï¿½v]:ï¿½ï¿½ï¿½ï¿½ï¿½cï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½X<br>
+ * [ï¿½ï¿½ ï¿½ï¿½]:ï¿½ï¿½ï¿½ï¿½ï¿½ğ”»’fï¿½ï¿½ï¿½ï¿½Öï¿½ï¿½ï¿½ñ‹Ÿ‚ï¿½ï¿½ï¿½<br>
+ * [ï¿½ï¿½ ï¿½l]:<br>
+ * ï¿½ï¿½ï¿½ìŒ : Copyright (c) 2008<br>
  * @author Toukei Computer Company
- * @author —›Š½
+ * @author ï¿½ï¿½ï¿½ï¿½
  * @version 1.0
  * @since 1.0
  */
 public class AuthHelper {
 
 	/**
-	 * [ŠT—v]:ƒ†[ƒU[‚ÍŒ ŒÀ‚ğg‚¤<br>
+	 * [ï¿½Tï¿½v]:ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ÍŒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½<br>
 	 */
 	public static final int PERMISSION_CHECK_OK = 1;
 
 	/**
-	 * [ŠT—v]:ƒ†[ƒU[‚ÍŒ ŒÀ‚ğg‚í‚È‚¢<br>
+	 * [ï¿½Tï¿½v]:ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ÍŒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½È‚ï¿½<br>
 	 */
 	public static final int PERMISSION_CHECK_NG = -1;
 
 	/**
-	 * [ŠT—v]:ƒ†[ƒU[Œ ŒÀ‚ÌŠúŠÔ‚ÆŠÔ‚Í—LŒøŠúŠÔ‚Æ—LŒøŠÔ‚Å‚Í‚È‚¢B<br>
+	 * [ï¿½Tï¿½v]:ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ÌŠï¿½ï¿½Ô‚Æï¿½ï¿½Ô‚Í—Lï¿½ï¿½ï¿½ï¿½ï¿½Ô‚Æ—Lï¿½ï¿½ï¿½ï¿½ï¿½Ô‚Å‚Í‚È‚ï¿½ï¿½B<br>
 	 */
 	public static final int PERMISSION_CHECK_TIMEOUT = -2;
 
     /**
-     * [ŠT—v]:MD5ƒNƒ‰ƒX<br>
+     * [ï¿½Tï¿½v]:MD5ï¿½Nï¿½ï¿½ï¿½X<br>
      */
     private static MessageDigest MD5;
 
@@ -72,11 +67,11 @@ public class AuthHelper {
         }
     }
     /**
-     * [ŠT —v]:MD5ˆÃ†‰»<br>
-     * [à –¾]:MD5‚ÅˆÃ†‰»‚·‚é<br>
-     * [”õ l]:Java‚ÌMD5‚ÆOracle‚ÌMD5‚ÌˆÃ†‰»‚ÌŒ‹‰Ê‚Íˆá‚¤B
-     * @param str ˆÃ†‰»‚Ì•K—v‚ª‚ ‚é•¶š
-     * @return ˆÃ†‰»‚µ‚½•¶š
+     * [ï¿½T ï¿½v]:MD5ï¿½Ãï¿½ï¿½ï¿½<br>
+     * [ï¿½ï¿½ ï¿½ï¿½]:MD5ï¿½ÅˆÃï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<br>
+     * [ï¿½ï¿½ ï¿½l]:Javaï¿½ï¿½MD5ï¿½ï¿½Oracleï¿½ï¿½MD5ï¿½ÌˆÃï¿½ï¿½ï¿½ï¿½ÌŒï¿½ï¿½Ê‚Íˆá‚¤ï¿½B
+     * @param str ï¿½Ãï¿½ï¿½ï¿½ï¿½Ì•Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½é•¶ï¿½ï¿½
+     * @return ï¿½Ãï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public static String getJavaMD5(String str){
     	String temp = StringUtil.nvl(str);
@@ -92,14 +87,14 @@ public class AuthHelper {
 
 
 	/**
-	 * [ŠT —v]:ƒ†[ƒU[Œ ŒÀ‚Ì”»’f<br>
-	 * [à –¾]:ActionƒR[ƒh‚æ‚èAƒ†[ƒU[‚ªŒ ŒÀ‚ğg‚¤‹@”\‚ª‚ ‚é‚©”»’f‚·‚éB<br>
-	 * @param pgId ActionƒR[ƒh
+	 * [ï¿½T ï¿½v]:ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ì”ï¿½ï¿½f<br>
+	 * [ï¿½ï¿½ ï¿½ï¿½]:Actionï¿½Rï¿½[ï¿½hï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½@ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½é‚©ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½B<br>
+	 * @param pgId Actionï¿½Rï¿½[ï¿½h
 	 * @param javaSession java session
 	 * @return
-	 *  PERMISSION_CHECK_OK  Œ ŒÀ‚Ì”»’f‚Í¬Œ÷<br>
-	 *  PERMISSION_CHECK_TIMEOUT Œ ŒÀ‚ÌŠÔ‚Í—LŒø‚ÈŠÔ‚Å‚Í‚È‚¢<br>
-	 *  PERMISSION_CHECK_NG –³Œ ŒÀ<br>
+	 *  PERMISSION_CHECK_OK  ï¿½ï¿½ï¿½ï¿½ï¿½Ì”ï¿½ï¿½fï¿½Íï¿½ï¿½ï¿½<br>
+	 *  PERMISSION_CHECK_TIMEOUT ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½Ô‚Í—Lï¿½ï¿½ï¿½Èï¿½ï¿½Ô‚Å‚Í‚È‚ï¿½<br>
+	 *  PERMISSION_CHECK_NG ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<br>
 	 */
 	public static int userPermissionCheck(String pgId,Map<Object,Object> javaSession) {
 
@@ -118,9 +113,9 @@ public class AuthHelper {
 	}
 
 	/**
-	 * [ŠT —v]:ƒ†[ƒU[ƒƒOƒCƒ“‚ÌƒƒbƒN”»’f<br>
+	 * [ï¿½T ï¿½v]:ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½Ìƒï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½f<br>
 	 * @param javaSession Java Session
-	 * @return true:ƒ†[ƒU[‚ğƒƒbƒN‚·‚é false:ƒƒbƒN‚µ‚È‚¢
+	 * @return true:ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ false:ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½È‚ï¿½
 	 */
 	public static boolean userLockCheck(Map<Object,Object> javaSession) {
 		User user = (User) javaSession.get(Constants.SESSION_USER);
@@ -134,9 +129,9 @@ public class AuthHelper {
 	}
 
 	/**
-	 * [ŠT —v]:ƒ†[ƒU[‚ªƒVƒXƒeƒ€‚ğƒƒOƒCƒ“‚µ‚½‚©”»’f‚·‚é<br>
+	 * [ï¿½T ï¿½v]:ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½Vï¿½Xï¿½eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½<br>
 	 * @param javaSession Java Seesion
-	 * @return true:“o˜^‚µ‚½ƒVƒXƒeƒ€ false:–¢“o˜^
+	 * @return true:ï¿½oï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½Xï¿½eï¿½ï¿½ false:ï¿½ï¿½ï¿½oï¿½^
 	 */
 	public static boolean userLoginCheck(Map<Object,Object> javaSession) {
 		if (javaSession.containsKey(Constants.SESSION_USER) == true) {
@@ -148,10 +143,10 @@ public class AuthHelper {
 	}
 
 	/**
-	 * [ŠT —v]:ƒ†[ƒU[‚Ì—LŒø“o˜^ŠúŠÔ‚Å‚ ‚é‚©”»’f‚·‚é<br>
+	 * [ï¿½T ï¿½v]:ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½Ì—Lï¿½ï¿½ï¿½oï¿½^ï¿½ï¿½ï¿½Ô‚Å‚ï¿½ï¿½é‚©ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½<br>
 	 * @param javaSession Java Session
 	 * @return true:OK false:NG
-	 * @throws FrameworkException “ú•t‚Ì“]Š·‚ÍƒGƒ‰[
+	 * @throws FrameworkException ï¿½ï¿½ï¿½tï¿½Ì“]ï¿½ï¿½ï¿½ÍƒGï¿½ï¿½ï¿½[
 	 */
 	public static boolean userValidPeriodCheck(Map<Object,Object> javaSession) throws FrameworkException {
 		User user = (User) javaSession.get(Constants.SESSION_USER);
@@ -172,7 +167,7 @@ public class AuthHelper {
 	}
 
 	/**
-	 * [ŠT —v]:ƒ†[ƒU[ƒƒOƒCƒ“‚Ì—LŒøŠúŠÔ‚Å‚ ‚é‚©”»’f‚·‚é<br>
+	 * [ï¿½T ï¿½v]:ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½Ì—Lï¿½ï¿½ï¿½ï¿½ï¿½Ô‚Å‚ï¿½ï¿½é‚©ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½<br>
 	 * @param javaSession Java Session
 	 * @return true:OK false:NG
 	 */
@@ -191,11 +186,11 @@ public class AuthHelper {
 	}
 
 	/**
-	 * [ŠT —v]:ƒƒbƒNƒ†[ƒU[<br>
-	 * [à –¾]:ƒ†[ƒU[‚ğƒƒbƒNAƒƒOƒCƒ“‚Å‚«‚È‚¢ˆ—B<br>
-	 * @param companyNo ‰ïĞNo
-	 * @param userCd ƒ†[ƒU[”Ô†
-	 * @param lockType ƒpƒXƒ[ƒhƒGƒ‰[‚ÌƒƒbƒN‚Ü‚½‚ÍŠÇ—Ò‚ÌƒƒbƒN
+	 * [ï¿½T ï¿½v]:ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½[ï¿½Uï¿½[<br>
+	 * [ï¿½ï¿½ ï¿½ï¿½]:ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Nï¿½Aï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½Å‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B<br>
+	 * @param companyNo ï¿½ï¿½ï¿½No
+	 * @param userCd ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½Ôï¿½
+	 * @param lockType ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½Gï¿½ï¿½ï¿½[ï¿½Ìƒï¿½ï¿½bï¿½Nï¿½Ü‚ï¿½ï¿½ÍŠÇ—ï¿½ï¿½Ò‚Ìƒï¿½ï¿½bï¿½N
 	 * @param currentUserNo current user no
 	 * @throws FrameworkException
 	 */
@@ -209,10 +204,10 @@ public class AuthHelper {
 	}
 
 	/**
-	 * [ŠT —v]:ƒ†[ƒU[ƒpƒXƒ[ƒh‚ğƒ`ƒFƒbƒN‚·‚é<br>
-	 * [à –¾]:‹Æ–±ƒƒ\ƒbƒhAƒ†[ƒU[ƒpƒXƒ[ƒh‚Í³‚µ‚¢‚©”»’f‚·‚éB<br>
-	 * [”õ l]:ƒpƒXƒ[ƒhƒGƒ‰[‰ñ”‚ÍÅ‘å‚Ì§ŒÀ‚É’B‚·‚é‚ÉAŠY“–ƒ†[ƒU[‚ªƒƒbƒN‚³‚ê‚é‚±‚Æ‚ª‚Å‚«‚éB
-	 * @return trueFƒ`ƒFƒbƒN¬Œ÷ falseFƒ†[ƒU[–¼‚Ü‚½‚ÍƒpƒXƒ[ƒhƒGƒ‰[
+	 * [ï¿½T ï¿½v]:ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½<br>
+	 * [ï¿½ï¿½ ï¿½ï¿½]:ï¿½Æ–ï¿½ï¿½ï¿½ï¿½\ï¿½bï¿½hï¿½Aï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½Íï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½B<br>
+	 * [ï¿½ï¿½ ï¿½l]:ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½Gï¿½ï¿½ï¿½[ï¿½ñ”‚ÍÅ‘ï¿½Ìï¿½ï¿½ï¿½ï¿½É’Bï¿½ï¿½ï¿½éï¿½ÉAï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½é‚±ï¿½Æ‚ï¿½ï¿½Å‚ï¿½ï¿½ï¿½B
+	 * @return trueï¿½Fï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ falseï¿½Fï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Íƒpï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½Gï¿½ï¿½ï¿½[
 	 * @throws FrameworkException
 	 */
 	public static boolean userPasswordCheck(String companyNo,
@@ -223,11 +218,11 @@ public class AuthHelper {
 			if(StringUtil.isNull(userCd)){
 				return false;
 			}
-			//ƒ†[ƒU[î•ñ‚ğæ“¾‚·‚é
+			//ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
 
 			UserDAO userDao = new UserDAO();
 			User user = userDao.getUser(companyNo, userCd);
-			//ƒ†[ƒU[‚Í‘¶İ‚µ‚È‚¯‚ê‚ÎA–ß‚è’l‚Í‚†‚‚Œ‚“‚…
+			//ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½Í‘ï¿½ï¿½İ‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ÎAï¿½ß‚ï¿½lï¿½Í‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(user == null){
 				SuperLogger.debug("user not found. " +
 								" userCd is -> "+userCd+
@@ -235,17 +230,17 @@ public class AuthHelper {
 								);
 				return false;
 			}
-			//‹¦—Í‰ïĞƒT[ƒg
+			//ï¿½ï¿½ï¿½Í‰ï¿½ĞƒTï¿½[ï¿½g
 			if (StringUtil.stringEquals(companyNo, "3")){
 				user.setWhCd("");
 			}
 			httpsession.setAttribute(Constants.SESSION_USER, user);
-			//‘å‘º†‹Æ‰c‹ÆŠƒR[ƒh
+			//ï¿½å‘ºï¿½ï¿½ï¿½Æ‰cï¿½Æï¿½ï¿½Rï¿½[ï¿½h
 			httpsession.setAttribute(jp.co.tcc.ecs.e_asproComm.common.Constants.LOGIN_WH_CD, user.getWhCd());
 
-			//ƒ†[ƒU[ƒpƒXƒ[ƒh‚ÌˆÃ†‰»‚Ì•û®‚ğæ“¾‚·‚éB
+			//ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ÌˆÃï¿½ï¿½ï¿½ï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½B
 			String md5Provider = FrameworkConfig.getFrameworkConfig(Constants.AUTH_PASSWORD_PROCESS_PROVIDER);
-			//ˆÃ†‰»‚Ì•û®‚Í‹ó‚Æ‚·‚ê‚ÎA–¢ˆÃ†‰»‚Ìó‹µ‚æ‚è”äŠr‚ğs‚¤B
+			//ï¿½Ãï¿½ï¿½ï¿½ï¿½Ì•ï¿½ï¿½ï¿½ï¿½Í‹ï¿½Æ‚ï¿½ï¿½ï¿½ÎAï¿½ï¿½ï¿½Ãï¿½ï¿½ï¿½ï¿½Ìó‹µ‚ï¿½ï¿½ï¿½rï¿½ï¿½ï¿½sï¿½ï¿½ï¿½B
 			if(StringUtil.stringEquals(Constants.AUTH_PASSWORD_ENCODE_JAVA, md5Provider) == true){
 				//Java MD5
 				if(StringUtil.stringEquals(user.getLoginPassword(),getJavaMD5(nvl(password)))==true){
@@ -265,7 +260,7 @@ public class AuthHelper {
 				}
 			}
 
-			//ƒ†[ƒU[ƒpƒXƒ[ƒh‚ÌƒƒOƒCƒ“ƒGƒ‰[‚Ì‰ñ”
+			//ï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½Ìƒï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½[ï¿½Ì‰ï¿½
 			if(user.getRepeadErrorCount() > 0){
 				//chg 2011.07.01 k.sakakibara
 				int retryCount = user.getNgCnt();
@@ -295,10 +290,10 @@ public class AuthHelper {
 	}
 
 	/**
-	 * [ŠT —v]:ƒZƒbƒVƒ‡ƒ“‚c‚a‚ÖŠi”[<br>
-	 * [à –¾]:ƒZƒbƒVƒ‡ƒ“î•ñ‚ğ•Û‚·‚éˆ×‚É‚c‚a‚ÖŠi”[‚·‚éB<br>
-	 * [”õ l]:
-	 * @return trueF¬Œ÷ falseF¸”s
+	 * [ï¿½T ï¿½v]:ï¿½Zï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½cï¿½aï¿½ÖŠiï¿½[<br>
+	 * [ï¿½ï¿½ ï¿½ï¿½]:ï¿½Zï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ûï¿½ï¿½ï¿½ï¿½ï¿½×‚É‚cï¿½aï¿½ÖŠiï¿½[ï¿½ï¿½ï¿½ï¿½B<br>
+	 * [ï¿½ï¿½ ï¿½l]:
+	 * @return trueï¿½Fï¿½ï¿½ï¿½ï¿½ falseï¿½Fï¿½ï¿½ï¿½s
 	 * @throws FrameworkException
 	 */
 	public static boolean insertSessionDB(String sessionId, String accessKey, User user,String remote_host) throws FrameworkException{
@@ -340,7 +335,7 @@ public class AuthHelper {
 			listParams.add(DBHelper.createSQLParamVarchar2(remote_host));//add 2011.09.12
 			try{
 				DBHelper.execUpdateWithPreparedStatement(prepareSql.toString(), listParams);
-				//DWHƒZƒbƒVƒ‡ƒ“ì¬‘O‚Écommit 2015/04/09
+				//DWHï¿½Zï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ì¬ï¿½Oï¿½ï¿½commit 2015/04/09
 				DBHelper.commit();
 			} catch (SQLException e){
 				throw new FrameworkException("AuthHelper.insertSessionDB sql error." +
@@ -355,7 +350,7 @@ public class AuthHelper {
 		}
 	}
 	/**
-	 * ƒNƒ‰ƒCƒAƒ“ƒgIPƒ`ƒFƒbƒN
+	 * ï¿½Nï¿½ï¿½ï¿½Cï¿½Aï¿½ï¿½ï¿½gIPï¿½`ï¿½Fï¿½bï¿½N
 	 * add 2011.09.12 K.sakakiabra
 	 * @param coNo
 	 * @param userCd

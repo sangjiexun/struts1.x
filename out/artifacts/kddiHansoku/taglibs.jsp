@@ -37,12 +37,12 @@
 			}
 			if(this.opener != null){
 		    	try{
-		    		window.parent.opener.top.location = "<%=Constants.URL_BASE%>/e_asproLogin/login?compString="+v_compValue;
+		    		window.parent.opener.top.location = "<%=Constants.URL_BASE%>/login?compString="+v_compValue;
 		    		this.window.close();
 		    	}catch(e){}
 		    	
 		    }else{
-		    	top.location = "<%=Constants.URL_BASE%>/e_asproLogin/login?compString="+v_compValue;
+		    	top.location = "<%=Constants.URL_BASE%>/login?compString="+v_compValue;
 		    }
 		}catch(e){
 

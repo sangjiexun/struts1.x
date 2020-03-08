@@ -68,9 +68,9 @@ public class ShijiFixEntryServlet extends CommonServlet {
 	 * [説 明]:<br>
 	 * [備 考]:
 	 *
-	 * @param HttpServletRequest request
-	 * @param HttpServletResponse response
-	 * @param ShijiFixEntryBean bean
+	 * @param //HttpServletRequest request
+	 * @param //HttpServletResponse response
+	 * @param //ShijiFixEntryBean bean
 	 * @return String
 	 * @throws Exception
 	 */
@@ -135,7 +135,7 @@ public class ShijiFixEntryServlet extends CommonServlet {
 	 * [説 明]:<br>
 	 * [備 考]:
 	 *
-	 * @param HttpServletRequest request
+	 * @param //HttpServletRequest request
 	 * @throws Exception
 	 */
 	public void initDropDownList(HttpServletRequest request, ShijiFixEntryBean bean) throws Exception {
@@ -153,14 +153,14 @@ public class ShijiFixEntryServlet extends CommonServlet {
 	 * [説 明]:初期化を行う。<br>
 	 * [備 考]:
 	 *
-	 * @param HttpServletRequest request
-	 * @param HttpServletResponse response
-	 * @param ShijiFixEntryBean bean
+	 * @param //HttpServletRequest request
+	 * @param //HttpServletResponse response
+	 * @param //ShijiFixEntryBean bean
 	 * @return String
 	 * @throws Exception
 	 */
 	public String doInit(HttpServletRequest request, HttpServletResponse response, ShijiFixEntryBean bean)throws Exception {
-		this.initDropDownList(request,bean);
+		initDropDownList(request,bean);
 		return RETRUN_JSP;
 	}
 
@@ -169,9 +169,9 @@ public class ShijiFixEntryServlet extends CommonServlet {
 	 * [説 明]:検索を行う。<br>
 	 * [備 考]:
 	 *
-	 * @param HttpServletRequest request
-	 * @param HttpServletResponse response
-	 * @param ShijiFixEntryBean bean
+	 * @param //HttpServletRequest request
+	 * @param //HttpServletResponse response
+	 * @param //ShijiFixEntryBean bean
 	 * @return String
 	 * @throws Exception
 	 */
@@ -189,7 +189,7 @@ public class ShijiFixEntryServlet extends CommonServlet {
 		// 検索処理
 		bean = service.search(bean);
 		bean.setSearchKbn("2");
-		this.initDropDownList(request,bean);
+		initDropDownList(request,bean);
 		return RETRUN_JSP;
 	}
 
@@ -198,9 +198,9 @@ public class ShijiFixEntryServlet extends CommonServlet {
 	 * [説 明]:選択確定を行う。<br>
 	 * [備 考]:
 	 *
-	 * @param HttpServletRequest request
-	 * @param HttpServletResponse response
-	 * @param ShijiFixEntryBean bean
+	 * @param //HttpServletRequest request
+	 * @param //HttpServletResponse response
+	 * @param //ShijiFixEntryBean bean
 	 * @return String
 	 * @throws Exception
 	 */
@@ -232,9 +232,9 @@ public class ShijiFixEntryServlet extends CommonServlet {
 	 * [説 明]:一括確定を行う。<br>
 	 * [備 考]:
 	 *
-	 * @param HttpServletRequest request
-	 * @param HttpServletResponse response
-	 * @param ShijiFixEntryBean bean
+	 * @param //HttpServletRequest request
+	 * @param //HttpServletResponse response
+	 * @param //ShijiFixEntryBean bean
 	 * @return String
 	 * @throws Exception
 	 */
@@ -276,7 +276,7 @@ public class ShijiFixEntryServlet extends CommonServlet {
 	 * [説 明]:<br>
 	 * [備 考]:
 	 *
-	 * @param ShijiFixEntryBean bean
+	 * @param //ShijiFixEntryBean bean
 	 * @return String
 	 * @throws Exception
 	 */
@@ -288,7 +288,7 @@ public class ShijiFixEntryServlet extends CommonServlet {
 		CommonService.compareYmd(bean.getOrder_ymd_s(), bean.getOrder_ymd_e(),"注文日", sb);
 
 		// 出荷予定日
-		CommonService.compareYmd(bean.getSyukka_yotei_ymd_s(), bean.getSyukka_yotei_ymd_e(),"出荷予定日", sb);
+		CommonService.compareYmd(bean.getSyukka_yotei_ymd_s(), bean.getSyukka_yotei_ymd_e(), "\u51fa\u8377\u4e88\u5b9a\u65e5", sb);
 
 		// 配達指定日
 		CommonService.compareYmd(bean.getTdk_ymd_s(), bean.getTdk_ymd_e(),"配達指定日", sb);
@@ -301,7 +301,7 @@ public class ShijiFixEntryServlet extends CommonServlet {
 	 * [説 明]:<br>
 	 * [備 考]:
 	 *
-	 * @param ShijiFixEntryBean bean
+	 * @param //hijiFixEntryBean bean
 	 * @return String
 	 * @throws Exception
 	 */

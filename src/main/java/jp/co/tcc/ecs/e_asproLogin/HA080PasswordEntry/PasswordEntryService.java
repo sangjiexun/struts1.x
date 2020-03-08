@@ -10,8 +10,8 @@ import jp.co.tcc.ecs.e_asproComm.common.CommonService;
 import jp.co.tcc.ecs.e_asproComm.common.Constants;
 import jp.co.tcc.ecs.e_asproComm.common.InputChecker;
 import jp.co.tcc.ecs.e_asproComm.common.Properties;
-import jp.co.tcc.ecs.e_asproLogin.Login.LoginBean;
-import jp.co.tcc.ecs.e_asproLogin.Login.LoginService;
+import jp.co.tcc.ecs.e_asproLogin.Login.*;
+
 import jp.co.tcc.ecs.e_asproUser.User.UserDAO;
 import jp.co.tcc.ecsolution.framework.configUtils.FrameworkConfig;
 

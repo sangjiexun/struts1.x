@@ -2,9 +2,9 @@
 <configuration>
     <section name="DB">
         <!-- JNDI Connection type -->
-        <entry key="connectType" value="jndi"/>
+      <!--  <entry key="connectType" value="jndi"/>-->
         <!-- JDBC Connection type -->
-        <!--<entry key="connectType" value="jdbc"/>-->
+        <entry key="connectType" value="jdbc"/>
     </section>
 
 	<section name="DB_JNDI">
@@ -12,9 +12,12 @@
 	</section>
 
    <section name="DB_JDBC">
-        <entry key="dbUser" value="lika" />
-        <entry key="dbPassword" value="ika" />
-        <entry key="url" value="jdbc:oracle:thin:@172.17.1.2:1521:DLDB03" />
+      <!--  <entry key="dbUser" value="lika" />
+        <entry key="dbPassword" value="ika" />-->
+         <entry key="dbUser" value="xxx" />
+      <entry key="dbPassword" value="xxx" />
+       <!-- <entry key="url" value="jdbc:oracle:thin:@172.17.1.2:1521:DLDB03" />-->
+       <entry key="url" value="jdbc:oracle:thin:@127.0.0.1:1521:DLDB03" />
         <entry key="driverClass" value="oracle.jdbc.driver.OracleDriver" />
     </section>
 

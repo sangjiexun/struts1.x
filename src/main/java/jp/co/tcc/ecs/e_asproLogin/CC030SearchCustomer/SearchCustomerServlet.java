@@ -4,14 +4,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jp.co.tcc.ecs.e_asproComm.common.CommonService;
+import jp.co.tcc.ecs.e_asproComm.common.CommonServlet;
 import jp.co.tcc.ecs.e_asproComm.common.Constants;
 import jp.co.tcc.ecs.e_asproComm.framework.base.ManageUtils;
-import jp.co.tcc.ecs.e_asproLogin.common.CommonServlet;
+
 import jp.co.tcc.ecs.e_asproUser.User.User;
 import jp.co.tcc.ecsolution.framework.otherUtils.StringUtil;
 
 /**
- * [ŠT—v]ŒÚ‹q‘I‘ğƒEƒBƒ“ƒhƒEƒNƒ‰ƒX<br>
+ * [æ¦‚è¦]é¡§å®¢é¸æŠã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹<br>
  * @version 1.0<br>
  * @since 1.0<br>
  */
@@ -30,16 +31,16 @@ public class SearchCustomerServlet extends CommonServlet {
 		User user = (User) request.getSession().getAttribute("_user");
 		String sisyaCd = request.getParameter("sisyaCd");
 
-		//ˆø”‚É‚ÄxĞƒR[ƒh‚ª‚ ‚éê‡Ši”[
+		//å¼•æ•°ã«ã¦æ”¯ç¤¾ã‚³ãƒ¼ãƒ‰ãŒã‚ã‚‹å ´åˆæ ¼ç´
 		if (!"".equals(StringUtil.nvl(sisyaCd))) {
 			bean.setSisyaCd(StringUtil.nvl(sisyaCd));
 			service.getSisyaNm(user,bean);
 		}
 
-		//‰Šú•\¦
+		//åˆæœŸè¡¨ç¤º
 		if ("".equals(bean.getProcessType()) == true){
 			returnStr = doInit(request, response, bean);
-		//ŒŸõ
+		//æ¤œç´¢
 		} else if ("1".equals(bean.getProcessType()) == true){
 			returnStr = doSubmit(request, response, bean);
 			ManageUtils manageUtils = bean.getManageUtils(request);
@@ -51,7 +52,7 @@ public class SearchCustomerServlet extends CommonServlet {
 	}
 
 	/**
-	 * ‰Šú•\¦
+	 * åˆæœŸè¡¨ç¤º
 	 * @param request
 	 * @param response
 	 * @return
@@ -63,7 +64,7 @@ public class SearchCustomerServlet extends CommonServlet {
 		bean.setCo_no(strCo_no);
 		String userAuth = user.getUserAuth();
 		String userNo = "";
-		//–{•”ˆÈŠO‚Ìê‡userNo‚Ìİ’è
+		//æœ¬éƒ¨ä»¥å¤–ã®å ´åˆuserNoã®è¨­å®š
 		if(!Constants.USER_KBN_HONBU.equals(userAuth)){
 			userNo = StringUtil.nvl(user.getUserNo(),"");
 		}
@@ -73,7 +74,7 @@ public class SearchCustomerServlet extends CommonServlet {
 	}
 
 	/**
-	 * ŒŸõƒ{ƒ^ƒ“
+	 * æ¤œç´¢ãƒœã‚¿ãƒ³
 	 * @param request
 	 * @param response
 	 * @return

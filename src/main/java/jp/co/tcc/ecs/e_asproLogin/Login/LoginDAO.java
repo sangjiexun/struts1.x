@@ -1,29 +1,29 @@
 package jp.co.tcc.ecs.e_asproLogin.Login;
 
+import jp.co.tcc.ecsolution.framework.dbUtils.DBHelper;
+import jp.co.tcc.ecsolution.framework.dbUtils.SQLParamType;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
-import jp.co.tcc.ecsolution.framework.dbUtils.DBHelper;
-import jp.co.tcc.ecsolution.framework.dbUtils.SQLParamType;
-import jp.co.tcc.ecsolution.framework.otherUtils.StringUtil;
 
 /**
- * [ŠT@—v]FƒƒOƒCƒ“ˆ—‚ğÀsB<br>
- * [à@–¾]FƒƒOƒCƒ“ˆ—‚ğÀsB<br>
- * [”õ@l]FHyperê—pƒNƒ‰ƒX‚Å‚·B<br>
- *@’˜ìŒ :Toukei Computer Company Copyright (c) 2008<br>
+ * [ï¿½Tï¿½@ï¿½v]ï¿½Fï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½B<br>
+ * [ï¿½ï¿½ï¿½@ï¿½ï¿½]ï¿½Fï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½B<br>
+ * [ï¿½ï¿½ï¿½@ï¿½l]ï¿½FHyperï¿½ï¿½pï¿½Nï¿½ï¿½ï¿½Xï¿½Å‚ï¿½ï¿½B<br>
+ *ï¿½@ï¿½ï¿½ï¿½ìŒ :Toukei Computer Company Copyright (c) 2008<br>
  * @author DHK
  * @version 1.0
  * @since 1.0
  */
 public class LoginDAO {
 	/** 
-	 * [ŠT —v]:ƒƒOƒCƒ“‰æ–Êƒf[ƒ^ŒŸõB<br>
-	 * [à –¾]:ƒƒOƒCƒ“‰æ–Êƒf[ƒ^‚É‡‚¤ƒf[ƒ^‚ğŒŸõ‚·‚éB<br>
-	 * [”õ l]:<br>
-	 * @param bean ƒƒOƒCƒ“‰æ–ÊƒIƒuƒWƒFƒNƒg
-	 * @return bean ƒƒOƒCƒ“‰æ–ÊƒuƒWƒFƒNƒg
+	 * [ï¿½T ï¿½v]:ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½Êƒfï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½B<br>
+	 * [ï¿½ï¿½ ï¿½ï¿½]:ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½Êƒfï¿½[ï¿½^ï¿½Éï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B<br>
+	 * [ï¿½ï¿½ ï¿½l]:<br>
+	 * @param bean ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½ÊƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½g
+	 * @return bean ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½Êƒuï¿½Wï¿½Fï¿½Nï¿½g
 	 * @throws Exception
 	 * @see
 	 */
@@ -31,14 +31,14 @@ public class LoginDAO {
 		StringBuffer sql = new StringBuffer();
 		List<SQLParamType> listParams = new ArrayList<SQLParamType>();
 		Vector<Map<String, String>> result = null;
-		//ŒŸõ—pSQL
+		//ï¿½ï¿½ï¿½ï¿½ï¿½pSQL
 		sql.append(" select ");
-		sql.append("    A.CO_NO,");  	 	//‰ïĞNO
-		sql.append("    A.COMP_NM AS TITLE_NAME, "); 	//‰ïĞ\¬–¼
-		sql.append("    A.COLOR1,");       	//F‚P
-		sql.append("    A.IMG1");         	//‰æ‘œ‚P
+		sql.append("    A.CO_NO,");  	 	//ï¿½ï¿½ï¿½NO
+		sql.append("    A.COMP_NM AS TITLE_NAME, "); 	//ï¿½ï¿½Ğ\ï¿½ï¿½ï¿½ï¿½
+		sql.append("    A.COLOR1,");       	//ï¿½Fï¿½P
+		sql.append("    A.IMG1");         	//ï¿½æ‘œï¿½P
 		sql.append(" from");
-		sql.append("    M_EA001_COMP A");  //g—pÏ¤•iƒ}ƒXƒ^
+		sql.append("    M_EA001_COMP A");  //ï¿½gï¿½pï¿½Ïï¿½ï¿½iï¿½}ï¿½Xï¿½^
 		sql.append(" where 1=1 ");
 		sql.append(" and  A.COMP_STRING = ?");
 		String strCmp = bean.getCompString();

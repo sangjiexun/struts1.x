@@ -9,7 +9,7 @@
   <welcome-file-list>
   <!--  <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>-->
-    <welcome-file>Login.jsp</welcome-file>
+    <welcome-file>onLogin.jsp</welcome-file>
  <!--   <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>-->
@@ -39,124 +39,122 @@
 
 
 
-<!--
+
   <servlet>
     <description>
-      This is the description of my J2EE component
+          login
     </description>
     <display-name>
-      This is the display name of my J2EE component
+          login
     </display-name>
     <servlet-name>loginServlet</servlet-name>
     <servlet-class>
       jp.co.tcc.ecs.e_asproLogin.Login.LoginServlet
     </servlet-class>
   </servlet>
-
-
   <servlet-mapping>
     <servlet-name>loginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
 
+  <!--
+    <servlet>
+      <servlet-name>CC021SearchProduct</servlet-name>
+      <servlet-class>
+        jp.co.tcc.ecs.e_asproLogin.CC021SearchProduct.SearchProductServlet
+      </servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>CC021SearchProduct</servlet-name>
+      <url-pattern>/CC021SearchProduct</url-pattern>
+    </servlet-mapping>
 
-  <servlet>
-    <servlet-name>CC021SearchProduct</servlet-name>
-    <servlet-class>
-      jp.co.tcc.ecs.e_asproLogin.CC021SearchProduct.SearchProductServlet
-    </servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CC021SearchProduct</servlet-name>
-    <url-pattern>/CC021SearchProduct</url-pattern>
-  </servlet-mapping>
+    <servlet>
+      <servlet-name>CC030SearchCustomer</servlet-name>
+      <servlet-class>
+        jp.co.tcc.ecs.e_asproLogin.CC030SearchCustomer.SearchCustomerServlet
+      </servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>CC030SearchCustomer</servlet-name>
+      <url-pattern>/CC030SearchCustomer</url-pattern>
+    </servlet-mapping>
 
-  <servlet>
-    <servlet-name>CC030SearchCustomer</servlet-name>
-    <servlet-class>
-      jp.co.tcc.ecs.e_asproLogin.CC030SearchCustomer.SearchCustomerServlet
-    </servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CC030SearchCustomer</servlet-name>
-    <url-pattern>/CC030SearchCustomer</url-pattern>
-  </servlet-mapping>
+    <servlet>
+      <servlet-name>CC031SearchZaiko</servlet-name>
+      <servlet-class>
+        jp.co.tcc.ecs.e_asproLogin.CC031SearchZaiko.SearchZaikoServlet
+      </servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>CC031SearchZaiko</servlet-name>
+      <url-pattern>/CC031SearchZaiko</url-pattern>
+    </servlet-mapping>
 
-  <servlet>
-    <servlet-name>CC031SearchZaiko</servlet-name>
-    <servlet-class>
-      jp.co.tcc.ecs.e_asproLogin.CC031SearchZaiko.SearchZaikoServlet
-    </servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CC031SearchZaiko</servlet-name>
-    <url-pattern>/CC031SearchZaiko</url-pattern>
-  </servlet-mapping>
+    <servlet>
+      <servlet-name>CC040HanroList</servlet-name>
+      <servlet-class>
+        jp.co.tcc.ecs.e_asproLogin.CC040HanroList.HanroListServlet
+      </servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>CC040HanroList</servlet-name>
+      <url-pattern>/CC040HanroList</url-pattern>
+    </servlet-mapping>
 
-  <servlet>
-    <servlet-name>CC040HanroList</servlet-name>
-    <servlet-class>
-      jp.co.tcc.ecs.e_asproLogin.CC040HanroList.HanroListServlet
-    </servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CC040HanroList</servlet-name>
-    <url-pattern>/CC040HanroList</url-pattern>
-  </servlet-mapping>
+    <servlet>
+      <servlet-name>CC900PostalCheck</servlet-name>
+      <servlet-class>
+        jp.co.tcc.ecs.e_asproLogin.CC900PostalCheck.PostalCheckServlet
+      </servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>CC900PostalCheck</servlet-name>
+      <url-pattern>/CC900PostalCheck</url-pattern>
+    </servlet-mapping>
 
-  <servlet>
-    <servlet-name>CC900PostalCheck</servlet-name>
-    <servlet-class>
-      jp.co.tcc.ecs.e_asproLogin.CC900PostalCheck.PostalCheckServlet
-    </servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CC900PostalCheck</servlet-name>
-    <url-pattern>/CC900PostalCheck</url-pattern>
-  </servlet-mapping>
+    <servlet>
+      <description>
+        menu
+      </description>
+      <display-name>
+        menu
+      </display-name>
+      <servlet-name>MenuServlet</servlet-name>
+      <servlet-class>
+        jp.co.tcc.ecs.e_asproLogin.HA070Menu.MenuServlet
+      </servlet-class>
+    </servlet>
 
-  <servlet>
-    <description>
-      menu
-    </description>
-    <display-name>
-      menu
-    </display-name>
-    <servlet-name>MenuServlet</servlet-name>
-    <servlet-class>
-      jp.co.tcc.ecs.e_asproLogin.HA070Menu.MenuServlet
-    </servlet-class>
-  </servlet>
+    <servlet-mapping>
+      <servlet-name>MenuServlet</servlet-name>
+      <url-pattern>/menu</url-pattern>
+    </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>MenuServlet</servlet-name>
-    <url-pattern>/menu</url-pattern>
-  </servlet-mapping>
+    <servlet>
+      <description>menu</description>
+      <display-name>menu</display-name>
+      <servlet-name>TopMenuServlet</servlet-name>
+      <servlet-class>jp.co.tcc.ecs.e_asproLogin.HA070Menu.TopMenuServlet
+      </servlet-class>
+    </servlet>
 
-  <servlet>
-    <description>menu</description>
-    <display-name>menu</display-name>
-    <servlet-name>TopMenuServlet</servlet-name>
-    <servlet-class>jp.co.tcc.ecs.e_asproLogin.HA070Menu.TopMenuServlet
-    </servlet-class>
-  </servlet>
+    <servlet-mapping>
+      <servlet-name>TopMenuServlet</servlet-name>
+      <url-pattern>/TopMenu</url-pattern>
+    </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>TopMenuServlet</servlet-name>
-    <url-pattern>/TopMenu</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>HA080PasswordEntry</servlet-name>
-    <servlet-class>
-      jp.co.tcc.ecs.e_asproLogin.HA080PasswordEntry.PasswordEntryServlet
-    </servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>HA080PasswordEntry</servlet-name>
-    <url-pattern>/passwordEntry</url-pattern>
-  </servlet-mapping>
--->
+    <servlet>
+      <servlet-name>HA080PasswordEntry</servlet-name>
+      <servlet-class>
+        jp.co.tcc.ecs.e_asproLogin.HA080PasswordEntry.PasswordEntryServlet
+      </servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>HA080PasswordEntry</servlet-name>
+      <url-pattern>/passwordEntry</url-pattern>
+    </servlet-mapping>
+  -->
   <filter>
     <filter-name>baseFilter</filter-name>
     <filter-class>

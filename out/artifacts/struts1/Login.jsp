@@ -8,7 +8,7 @@
 <%@page import="jp.co.tcc.ecs.e_asproLogin.Login.LoginBean"%>
 <%@page import="jp.co.tcc.ecsolution.framework.otherUtils.StringUtil"%>
 <%
-	String actionURL = Constants.URL_BASE + "/e_asproLogin/login";
+	String actionURL = Constants.URL_BASE /*+ "/login"*/;
 	if (!request.isRequestedSessionIdFromCookie()) {
 		actionURL = response.encodeURL(actionURL);
 	}
@@ -21,7 +21,7 @@
 	}
 %>
 <html>
-<%--<title><%=bean.getCompConfNm() %></title>--%>
+<title><%=bean.getCompConfNm() %></title>
 <script type="text/javascript" src="<%=Constants.DOC_ROOT %>/js/ecs.js" charset="Shift_JIS"></script>
 <script type="text/javascript" charset="Shift_JIS">
 	function login(){
@@ -59,7 +59,7 @@
 	}
 </script>
 </head>
-	<<body>
+	<%--<body>
 		<html:form action="/userLogin">
 			&lt;%&ndash;@declare id="userName"&ndash;%&gt;<label for="userName">userName:</label><html:text property="userName" maxlength="6"/><html:errors property="userName"/><br/>
 			&lt;%&ndash;@declare id="password"&ndash;%&gt;<label for="password">password:</label><html:password property="password" maxlength="6"/><html:errors property="password"/><br/>
@@ -70,20 +70,20 @@
 			<html:submit/>&nbsp;<html:cancel/>
 
 		</html:form><html:errors></html:errors>
-	</body>
+	</body>--%>
 <BODY BACKGROUND="<%=Constants.DOC_ROOT %>/img/sub_menu_bg.gif" onload="pageInit();">
 <DIV ALIGN="center">
 	<form name="_loginForm" action="<%=actionURL%>" method="post">
-	<%--	<%
-			String strErrMsg ="";
+		<%
+			String strErrMsg ="000000000";
 			if (bean!=null){
 				strErrMsg = StringUtil.nvl(bean.getStrErrMsg());
 			} else {
 				bean = new LoginBean();
 			}
 
-		%>--%>
-<%--		<b style="color: red"><%=strErrMsg%></b>--%>
+		%>
+		<b style="color: red"><%=strErrMsg%></b>
 		<br>
 		<CENTER>
 			<TABLE WIDTH="385" BORDER="0" CELLSPACING="0" CELLPADDING="0">
@@ -142,10 +142,10 @@
 		<table>
 			<tr>
 				<td colspan="2">
-			<%--		<input type="hidden" name="coNo" value="<%=bean.getCoNo()%>">
+					<input type="hidden" name="coNo" value="<%=bean.getCoNo()%>">
 					<input type="hidden" name="strURL" value="<%=bean.getStrURL()%>">
 					<input type="hidden" name="strForwordFlg" value="<%=strForwordFlg%>">
-					<input type="hidden" name="compString" value="<%=bean.getCompString()%>">--%>
+					<input type="hidden" name="compString" value="<%=bean.getCompString()%>">
 				</td>
 			</tr>
 		</table>

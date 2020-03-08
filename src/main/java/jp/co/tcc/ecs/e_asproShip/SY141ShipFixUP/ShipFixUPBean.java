@@ -8,10 +8,10 @@ import org.apache.commons.fileupload.disk.DiskFileItem;
 import jp.co.tcc.ecs.e_asproComm.common.BaseBean;
 
 /**
- * [ŠT —v]:o‰×ÀÑCSV“o˜^<br>
- * [à –¾]:<br>
- * [”õ l]:<br>
- * ’˜ìŒ : Copyright (c) 2019<br>
+ * [æ¦‚ è¦]:å‡ºè·å®Ÿç¸¾CSVç™»éŒ²<br>
+ * [èª¬ æ˜]:<br>
+ * [å‚™ è€ƒ]:<br>
+ * è‘—ä½œæ¨©: Copyright (c) 2019<br>
  *
  * @author Toukei Computer Company
  * @version 1.0
@@ -20,40 +20,40 @@ import jp.co.tcc.ecs.e_asproComm.common.BaseBean;
 
 public class ShipFixUPBean extends BaseBean {
 
-	// ««« ’è” «««
-	/** CSVƒAƒbƒvƒ[ƒh‹æ•ª */
+	// â†“â†“â†“ å®šæ•° â†“â†“â†“
+	/** CSVã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰åŒºåˆ† */
 	public static final String CSV_UP_KBN = "21";
-	/** ‰æ–Ê‘JˆÚFlag ƒAƒbƒvƒ[ƒhŒãƒ[ƒN“o˜^ */
+	/** ç”»é¢é·ç§»Flag ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰å¾Œãƒ¯ãƒ¼ã‚¯ç™»éŒ² */
 	public static final String PAGE_WAKU_INSERT = "12";
-	// ªªª ’è” ªªª
+	// â†‘â†‘â†‘ å®šæ•° â†‘â†‘â†‘
 
-	/**‹N“®‹æ•ª*/
+	/**èµ·å‹•åŒºåˆ†*/
 	private String processType = "";
-	/**ŒŸõ‹æ•ª*/
+	/**æ¤œç´¢åŒºåˆ†*/
 	private String searchKbn = "";
-	/**ƒGƒ‰[ƒƒbƒZ[ƒW*/
+	/**ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸*/
 	private String strErrMsg = "";
 
-	/**ƒpƒ^[ƒ“‘I‘ğ*/
+	/**ãƒ‘ã‚¿ãƒ¼ãƒ³é¸æŠ*/
 	private String patternNo = "";
-	/**ƒpƒ^[ƒ“‘I‘ğ(ƒvƒ‹ƒ_ƒEƒ“ƒŠƒXƒg)*/
+	/**ãƒ‘ã‚¿ãƒ¼ãƒ³é¸æŠ(ãƒ—ãƒ«ãƒ€ã‚¦ãƒ³ãƒªã‚¹ãƒˆ)*/
 	private Vector<Map<String, String>> patternNoList = null;
 
-	// —š—ğˆê——
+	// å±¥æ­´ä¸€è¦§
 	private Vector<Map<String, String>> list = null;
 
-	// ‘qŒÉƒR[ƒh
+	// å€‰åº«ã‚³ãƒ¼ãƒ‰
 	private String whCd = "";
-	// CSVƒtƒ@ƒCƒ‹
+	// CSVãƒ•ã‚¡ã‚¤ãƒ«
 	private DiskFileItem csvFile = null;
-	// ƒtƒ@ƒCƒ‹ƒpƒX
+	// ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹
 	private String csvFilePath = "";
 	// UUID
 	private String uuid = "";
-	// ƒAƒbƒvƒ[ƒhNO
+	// ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰NO
 	private String uploadNo = "-1";
 
-	// ƒLƒƒƒ“ƒZƒ‹‹æ•ªiŠm”F‰æ–Ê‚©‚çƒLƒƒƒ“ƒZƒ‹‚Å–ß‚Á‚Ä‚«‚½ê‡‚É1j
+	// ã‚­ãƒ£ãƒ³ã‚»ãƒ«åŒºåˆ†ï¼ˆç¢ºèªç”»é¢ã‹ã‚‰ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã§æˆ»ã£ã¦ããŸå ´åˆã«1ï¼‰
 	private String cancelKbn = "";
 
 	protected void setSearchParamMap() {

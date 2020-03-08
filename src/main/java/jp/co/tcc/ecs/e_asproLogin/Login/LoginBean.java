@@ -1,9 +1,9 @@
 package jp.co.tcc.ecs.e_asproLogin.Login;
 
+import jp.co.tcc.ecs.e_asproLogin.HA080PasswordEntry.PasswordEntryBeanInterface;
+
 import java.util.Map;
 import java.util.Vector;
-
-import jp.co.tcc.ecs.e_asproLogin.HA080PasswordEntry.PasswordEntryBeanInterface;
 
 /**
  * [概 要]：会社構成マスタJavaBean。<br>

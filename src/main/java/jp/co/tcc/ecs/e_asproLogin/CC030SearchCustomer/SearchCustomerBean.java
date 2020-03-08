@@ -6,43 +6,43 @@ import java.util.Map;
 import jp.co.tcc.ecs.e_asproComm.common.BaseBean;
 
 public class SearchCustomerBean extends BaseBean{
-	// ‹N“®‹æ•ª
+	// èµ·å‹•åŒºåˆ†
 	private String processType = "";
-	// ‰ïĞNo
+	// ä¼šç¤¾No
 	private String co_no = "";
 
-	/**ŒŸõğŒ*/
-	//‹’“_ƒR[ƒh
+	/**æ¤œç´¢æ¡ä»¶*/
+	//æ‹ ç‚¹ã‚³ãƒ¼ãƒ‰
 	private String kokyakuCdSearch = "";
-	//xĞ–¼
+	//æ”¯ç¤¾å
 	private String sisyaNm = "";
-	//xĞƒR[ƒh(ˆø”)
+	//æ”¯ç¤¾ã‚³ãƒ¼ãƒ‰(å¼•æ•°)
 	private String sisyaCd = "";
-	//xĞƒR[ƒh
+	//æ”¯ç¤¾ã‚³ãƒ¼ãƒ‰
 	private String sisyaCdSearch = "";
-	//’•¶Ò–¼
+	//æ³¨æ–‡è€…å
 	private String kokyakuNmSearch = "";
-	//’•¶ÒZŠ
+	//æ³¨æ–‡è€…ä½æ‰€
 	private String kokyakuAddrSearch = "";
-	//“d˜b”Ô†
+	//é›»è©±ç•ªå·
 	private String kokyakuTelSearch = "";
 	//FAX
 	private String kokyakuFaxSearch = "";
 
-	//ŒŸõ‹æ•ª
+	//æ¤œç´¢åŒºåˆ†
 	private String searchKbn = "";
-	/**ƒŠƒXƒg**/
+	/**ãƒªã‚¹ãƒˆ**/
 	private List<Map<String, String>> list = null;
-	//xĞƒŠƒXƒg
+	//æ”¯ç¤¾ãƒªã‚¹ãƒˆ
 	private List<Map<String, String>> sisyaList = null;
 
 
-	// ŒÄ‚Ño‚µ‰æ–Ê‚Ì–ß‚éŠÖ”
+	// å‘¼ã³å‡ºã—ç”»é¢ã®æˆ»ã‚‹é–¢æ•°
 	private String callsSrciptFuncName = "";
-	// s”Ô†
+	// è¡Œç•ªå·
 	private String index = "";
 
-	// •Ô‰ñ—pQ”Map
+	// è¿”å›ç”¨å‚æ•°Map
 	protected void setSearchParamMap() {
 		super.setSearchParamMap();
 		this.addParamMap("processType", this.processType);

@@ -3,14 +3,15 @@ package jp.co.tcc.ecs.e_asproLogin.HA080PasswordEntry;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.tcc.ecs.e_asproLogin.common.CommonServlet;
+import jp.co.tcc.ecs.e_asproComm.common.CommonServlet;
+
 import jp.co.tcc.ecs.e_asproLogin.HA080PasswordEntry.PasswordEntryService.ResultCode;
 
 /**
- * [ŠT —v]:ƒpƒXƒ[ƒh•ÏX‰æ–Ê—pServlet<br>
- * [à –¾]:passwordEntry.jsp‚©‚çŒÄ‚Î‚ê‚éB<br>
- * ’˜ìŒ : Copyright (c) 2015<br>
- * 
+ * [æ¦‚ è¦]:ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰å¤‰æ›´ç”»é¢ç”¨Servlet<br>
+ * [èª¬ æ˜]:passwordEntry.jspã‹ã‚‰å‘¼ã°ã‚Œã‚‹ã€‚<br>
+ * è‘—ä½œæ¨©: Copyright (c) 2015<br>
+ *
  * @author Toukei Computer Company
  * @author okuda
  * @version 1.0
@@ -19,24 +20,24 @@ import jp.co.tcc.ecs.e_asproLogin.HA080PasswordEntry.PasswordEntryService.Result
 public class PasswordEntryServlet extends CommonServlet {
 	private static final long serialVersionUID = 1L;
 
-	/** ƒpƒXƒ[ƒh•ÏX‰æ–ÊB“ü—Í“à—eŠm”F‚Åˆø‚Á‚©‚©‚Á‚½ê‡AÄ“x‚Ì“ü—Í‚ğ‘£‚·B */
+	/** ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰å¤‰æ›´ç”»é¢ã€‚å…¥åŠ›å†…å®¹ç¢ºèªã§å¼•ã£ã‹ã‹ã£ãŸå ´åˆã€å†åº¦ã®å…¥åŠ›ã‚’ä¿ƒã™ã€‚ */
 	public static final String FORWARD_THIS = "passwordEntry.jsp";
-	/** ƒƒOƒCƒ“‰æ–Ê‚Ö‘JˆÚBgetForwardLoginString()‚ğ‰î‚µ‚Äg—p‚·‚éB */
+	/** ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢ã¸é·ç§»ã€‚getForwardLoginString()ã‚’ä»‹ã—ã¦ä½¿ç”¨ã™ã‚‹ã€‚ */
 	private static final String FORWARD_LOGIN = "login?compString=%s";
-	/** ƒŠƒNƒGƒXƒg‚É“n‚·Bean‚ÌƒL[ */
+	/** ãƒªã‚¯ã‚¨ã‚¹ãƒˆã«æ¸¡ã™Beanã®ã‚­ãƒ¼ */
 	static final String ATTRIBUTE_KEY_BEAN = "bean";
 
 	/**
-	 * [ŠT —v]:ƒpƒXƒ[ƒh•ÏX‰æ–Ê‚ÌActionB<br>
-	 * [à –¾]:ƒT[ƒrƒX‚ÌŠeƒƒ\ƒbƒh‚ÅÀs¸”s‚ğ•Ô‚µ‚½ê‡A“ü—Í’l‚Ì•s³‚Ìê‡‚Í“¯‚¶‰æ–Ê‚ÅÄ“x‚Ì“ü—Í‚ğ‘£‚·B<br>
-	 * ‚»‚êˆÈŠO‚Ìê‡‚ÍƒƒOƒCƒ“‰æ–Ê‚É–ß‚µAƒƒOƒCƒ“‚©‚ç‚Ì‚â‚è’¼‚·‚æ‚¤‚É‘£‚·B<br>
-	 * [”õ l]:XV¬Œ÷AXVŒã‚Ì—˜—pŠúŠÔiI—¹j ‚ğƒZƒbƒVƒ‡ƒ“‚Ìuser‚ÉŠi”[B
-	 * 
+	 * [æ¦‚ è¦]:ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰å¤‰æ›´ç”»é¢ã®Actionã€‚<br>
+	 * [èª¬ æ˜]:ã‚µãƒ¼ãƒ“ã‚¹ã®å„ãƒ¡ã‚½ãƒƒãƒ‰ã§å®Ÿè¡Œå¤±æ•—ã‚’è¿”ã—ãŸå ´åˆã€å…¥åŠ›å€¤ã®ä¸æ­£ã®å ´åˆã¯åŒã˜ç”»é¢ã§å†åº¦ã®å…¥åŠ›ã‚’ä¿ƒã™ã€‚<br>
+	 * ãã‚Œä»¥å¤–ã®å ´åˆã¯ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢ã«æˆ»ã—ã€ãƒ­ã‚°ã‚¤ãƒ³ã‹ã‚‰ã®ã‚„ã‚Šç›´ã™ã‚ˆã†ã«ä¿ƒã™ã€‚<br>
+	 * [å‚™ è€ƒ]:æ›´æ–°æˆåŠŸæ™‚ã€æ›´æ–°å¾Œã®åˆ©ç”¨æœŸé–“ï¼ˆçµ‚äº†ï¼‰ ã‚’ã‚»ãƒƒã‚·ãƒ§ãƒ³ã®userã«æ ¼ç´ã€‚
+	 *
 	 * @param request
 	 * @param response
 	 * @return
 	 * @throws Exception
-	 * @see jp.co.tcc.ecs.e_asproLogin.common.CommonServlet#doAction(javax.servlet.http.HttpServletRequest,
+	 * @see //jp.co.tcc.ecs.e_asproLogin.common.CommonServlet#doAction(javax.servlet.http.HttpServletRequest,
 	 *      javax.servlet.http.HttpServletResponse)
 	 */
 	@Override
@@ -79,9 +80,9 @@ public class PasswordEntryServlet extends CommonServlet {
 	}
 
 	/**
-	 * [ŠT —v]:ƒƒOƒCƒ“‰æ–Ê‚Ö‘JˆÚ‚·‚é•¶š—ñ‚ğæ“¾B<br>
-	 * [à –¾]:compString‚ğƒŠƒNƒGƒXƒgƒpƒ‰ƒ[ƒ^‚Éİ’è‚µ‚½‚à‚Ì‚ğ•Ô‹pB<br>
-	 * 
+	 * [æ¦‚ è¦]:ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢ã¸é·ç§»ã™ã‚‹æ–‡å­—åˆ—ã‚’å–å¾—ã€‚<br>
+	 * [èª¬ æ˜]:compStringã‚’ãƒªã‚¯ã‚¨ã‚¹ãƒˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã«è¨­å®šã—ãŸã‚‚ã®ã‚’è¿”å´ã€‚<br>
+	 *
 	 * @param bean
 	 * @return
 	 */

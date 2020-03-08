@@ -2,7 +2,7 @@
 <Configuration status="warn">
 	<Properties>
 		<!-- nm:プロジェクト名を記載。ログのフォルダ、ファイル名になる  -->
-		<Property name="nm">e_asproLogin</Property>
+		<Property name="nm">e_asproShip</Property>
 		<Property name="date">%d{yyyy-MM-dd HH:mm:ss}</Property>
 		<Property name="daily_log">/home/oracle/log/e_aspro051KDDI/${nm}/${nm}</Property>
 		<!-- fileLevel:ログファイルの出力レベルを指定 -->

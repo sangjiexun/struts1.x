@@ -402,7 +402,7 @@ public class PrintListServlet extends CommonServlet {
 			// 発送区分
 
 			// 出荷予定日
-			CommonService.compareYmd(bean.getSyukka_yotei_ymd_s(), bean.getSyukka_yotei_ymd_e(), "出荷予定日", sb);
+			CommonService.compareYmd(bean.getSyukka_yotei_ymd_s(), bean.getSyukka_yotei_ymd_e(), "\u51fa\u8377\u4e88\u5b9a\u65e5", sb);
 
 			// 配達指定日
 			CommonService.compareYmd(bean.getTdk_ymd_s(), bean.getTdk_ymd_e(), "配達指定日", sb);
