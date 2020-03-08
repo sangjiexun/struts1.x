@@ -1,0 +1,18 @@
+a:link { text-decoration: none }
+a:hover { text-decoration: underline }
+a:visited  { text-decoration: none }
+.list       { padding: 0x 0x 0x 0x; border-style: solid; border-width: 2px 1px 1px 2px; border-color: #666666 }
+.list th    { font-size: 12px; padding: 1px; border-style: solid; border-width: 0 1px 1px 0; border-color: #666666 }
+.list td    { font-size: 12px; margin: 0; padding: 3px 2px 2px; border-style: none solid solid none; border-width: medium 1px 1px medium; border-color: #666666 }
+.search    { border-style: solid; border-width: 2px 1px 1px 2px; border-color: #666666 }
+.search th             { font-size: 12px; background-color: #ccc; padding: 2px; width: 100px; float: none; border-style: solid; border-width: 0 1px 1px 0; border-color: #666666 }
+.search td            { font-size: 12px; margin: 0; padding:  2px 2px 1px; border-style: none solid solid none; border-width: medium 1px 1px medium; border-color: #666666 }
+.input          { border-style: solid; border-width: 2px 1px 1px 2px; border-color: #666666 }
+.input th                 { font-size: 12px; background-color: #ccc; padding: 2px; border-style: solid; border-width: 0 1px 1px 0; border-color: #666666 }
+.input td               { font-size: 12px; margin: 0; padding: 2px 2px 1px; border-style: none solid solid none; border-width: medium 1px 1px medium; border-color: #666666 }
+.sidemenu             { background-color: #fff; width: 155px }
+.sidemenu th              { font-size: 14px; font-weight: normal; background-color: #ccc; padding: 6px 2px }
+.sidemenu td          { font-size: 13px; margin: 0; padding: 3px 2px }
+p.path           { font-size: 12px; text-align: left; margin-top: 0; margin-bottom: 0 }
+p.path a   { color: #00f; text-decoration: none }
+p.path a:hover   { color: #f30 }

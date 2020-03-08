@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+	<Properties>
+		<!-- nm:プロジェクト名を記載。ログのフォルダ、ファイル名になる  -->
+		<Property name="nm">e_asproLogin</Property>
+		<Property name="date">%d{yyyy-MM-dd HH:mm:ss}</Property>
+		<Property name="daily_log">/home/oracle/log/e_aspro051KDDI/${nm}/${nm}</Property>
+		<!-- fileLevel:ログファイルの出力レベルを指定 -->
+		<Property name="fileLevel">info</Property>
+		<!-- consoleLevel:コンソールの出力レベルを指定 -->
+		<Property name="consoleLevel">warn</Property>
+	</Properties>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${date}:%p %logger{36} - %m%n"/>
+		</Console>
+		<RollingFile name="File" fileName="${daily_log}.log"
+								 filePattern="${daily_log}_%d{yyyy-MM-dd}-%i.zip">
+			<PatternLayout pattern="[${date}:%p %logger{36}] %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="jp.co.tcc.ecs.${nm}.console">
+			<level value="${consoleLevel}"/>
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="jp.co.tcc.ecs.${nm}.file">
+			<level value="${fileLevel}"/>
+			<AppenderRef ref="File" />
+		</Logger>
+		<Root level="trace">
+			<AppenderRef ref="Console" level="${consoleLevel}" />
+			<AppenderRef ref="File" level="${fileLevel}"/>
+		</Root>
+	</Loggers>
+</Configuration>

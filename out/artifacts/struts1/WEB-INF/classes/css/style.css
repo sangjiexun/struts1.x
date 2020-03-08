@@ -1,0 +1,15 @@
+@charset "Shift_JIS";
+
+/* default style clear
+------------------------------------------- */
+@import url("reset.css");
+
+
+/* all style
+------------------------------------------- */
+@import url("main.css");
+
+
+/* button style
+------------------------------------------- */
+@import url("btn_style.css");

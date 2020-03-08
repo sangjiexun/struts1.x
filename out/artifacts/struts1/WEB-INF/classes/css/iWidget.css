@@ -1,0 +1,43 @@
+/* Reset */
+body,img,p,h1,h2,h3,h4,h5,h6,ul,ol {margin:0; padding:0; list-style:none; border:none;}
+/* End Reset */
+
+a {color:white;}
+
+/* Colors */
+.color-bg {background:#CCFF99;}
+.color-bg2 {background:#FFCCFF;}
+.color-bg, 
+.color-bg2
+	h3{color:#000;}
+
+/* End Colors */
+
+/* Columns section */
+#columns .column {
+    float: left;
+	/* Min-height: */
+	min-height: 40px;
+	height: auto !important; 
+	height: 40px;
+}
+
+#columns .widget {
+    margin: 10px 0px 0 10px;
+    padding: 2px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+#columns .widget .widget-head {
+    color: #000;
+    overflow: hidden;
+    width: 100%;
+	vertical-align:center;
+	text-align:center;
+	/* Min-height: */
+	min-height: 40px;
+	height: auto !important; 
+	height: 40px;
+}
+/* End Columns section */
+

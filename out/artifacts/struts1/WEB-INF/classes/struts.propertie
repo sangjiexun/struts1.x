@@ -1,8 +1,0 @@
-struts.devMode=true
-#是否设置为开发模式
-
-struts.i18n.reload=true
-#国际化自动重新部署
-
-struts.configuration.xml.reload=true
-#重新价值xml文件

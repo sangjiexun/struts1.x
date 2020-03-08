@@ -1,0 +1,243 @@
+.status1 {
+	width: 80px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	padding: 1px;
+	background: #FF9933;
+	font-size:10px;
+
+	color:#FFFFFF;
+	border:0px;
+	margin:2px;
+
+}
+
+.status2 {
+	width: 80px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	padding: 1px;
+	background: #FF9933;
+	font-size:10px;
+	
+	color:#FFFFFF;
+	border:0px;
+	margin:2px;
+	
+}
+
+
+.small_order {
+    background: url("../img/btn_small_red1.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 19px;
+    width: 80px;
+    font-size: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.small_order_disabled {
+    background: url("../img/btn_small_red1_d.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 19px;
+    width: 80px;
+    font-size: 10px;
+    color: #999999;
+}
+
+
+.small_favorit {
+    background: url("../img/btn_small_gray1.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 19px;
+    width: 80px;
+    font-size: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.small_favorit_disabled {
+    background: url("../img/btn_small_gray1_d.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 19px;
+    width: 80px;
+    font-size: 10px;
+    color: #999999;
+}
+
+.small_favorit2 {
+    background: url("../img/btn_small_blue1.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 19px;
+    width: 80px;
+    font-size: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.small_favorit2_disabled {
+    background: url("../img/btn_small_blue1_d.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 19px;
+    width: 80px;
+    font-size: 10px;
+    color: #999999;
+}
+
+.small_search1 {
+    background: url("../img/btn_small_yellow1.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 18px;
+    width: 80px;
+    font-size: 10px;
+    color: #000000;
+    cursor: pointer;
+}
+
+
+.small_search2 {
+    background: url("../img/btn_small_gray3.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 18px;
+    width: 40px;
+    font-size: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+.small_btn1 {
+    background: url("../img/btn_small_red2.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 25px;
+    width: 150px;
+    font-size: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.small_btn1_disabled {
+    background: url("../img/btn_small_red2_d.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 25px;
+    width: 150px;
+    font-size: 12px;
+    color: #999999;
+}
+
+.small_btn2 {
+    background: url("../img/btn_small_gray2.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 25px;
+    width: 150px;
+    font-size: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.small_btn2_disabled {
+    background: url("../img/btn_small_gray2_d.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 25px;
+    width: 150px;
+    font-size: 12px;
+    color: #999999;
+}
+
+
+.small_btn3 {
+	width: 150px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	padding: 4px;
+	background: -moz-linear-gradient(center top, #FDD32B 0%,#A85503 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FDD32B),color-stop(1, #A85503));
+	font-size:12px;
+	color:#FFFFFF;
+	border:0px	
+}
+
+.small_btn4 {
+    background: url("../img/btn_small_blue2.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 25px;
+    width: 150px;
+    font-size: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.small_btn4_disabled {
+    background: url("../img/btn_small_blue2_d.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 25px;
+    width: 150px;
+    font-size: 12px;
+    color: #999999;
+}
+
+.login {
+    background: url("../img/btn_small_red2.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 25px;
+    width: 150px;
+    font-size: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+.guest {
+	width: 200px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	padding: 5px;
+	background: -moz-linear-gradient(center top, #eeeeee 0%,#999999 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #eeeeee),color-stop(1, #999999));
+	font-size:14px;
+	color:#000000;
+	border:0px	
+}
+
+
+
+.web_member {
+    background: url("../img/btn_small_green2.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 25px;
+    width: 150px;
+    font-size: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+.new_member {
+    background: url("../img/btn_small_yellow2.gif") repeat scroll 0 0 transparent;
+    border-style: none;
+    height: 25px;
+    width: 150px;
+    font-size: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.linkBtn {
+    background: url("../img/btn_small_green2.gif") no-repeat scroll 0 0 transparent;
+    background-size: 150px 25px;
+    border-style: none;
+    height: 25px;
+    width: 150px;
+    font-size: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.searchBtn {
+    background: url("../img/btn_small_yellow1.gif") no-repeat scroll 0 0 transparent;
+    background-size: 80px 20px;
+    border-style: none;
+    height: 20px;
+    width: 80px;
+    font-size: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+}

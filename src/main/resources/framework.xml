@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <section name="DB">
+        <!-- JNDI Connection type -->
+        <entry key="connectType" value="jndi"/>
+        <!-- JDBC Connection type -->
+        <!--<entry key="connectType" value="jdbc"/>-->
+    </section>
+
+	<section name="DB_JNDI">
+		<entry key="jndi" value="jdbc/KddiHanDS" />
+	</section>
+
+   <section name="DB_JDBC">
+        <entry key="dbUser" value="lika" />
+        <entry key="dbPassword" value="ika" />
+        <entry key="url" value="jdbc:oracle:thin:@172.17.1.2:1521:DLDB03" />
+        <entry key="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+    </section>
+
+    <section name="TWO_FASE_COMMIT">
+        <!-- 排他カウンタ -->
+        <entry key="changeCountName" value="EXCL_CNT"/>
+    </section>
+
+    <section name="Temp">
+        <entry key="homeDir" value="$java.io.tmpdir$" />
+    </section>
+
+    <section name="MD5">
+        <entry key="provider" value="ORACLE"/>
+        <!--<entry key="provider" value="JAVA"/>-->
+        <!--<entry key="provider" value="NONE"/>-->
+    </section>
+
+</configuration>
