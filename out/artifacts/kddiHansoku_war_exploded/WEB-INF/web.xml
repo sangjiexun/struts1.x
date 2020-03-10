@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>kddiHansoku</display-name>
+
+ <!-- <session-config>
+    <session-timeout>60</session-timeout>
+  </session-config>-->
+
+  <welcome-file-list>
+  <!--  <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>-->
+    <welcome-file>onLogin.jsp</welcome-file>
+ <!--   <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>-->
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/struts-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>3</param-value>
+    </init-param>
+    <init-param>
+      <param-name>detail</param-name>
+      <param-value>3</param-value>
+    </init-param>
+    <load-on-startup>0</load-on-startup>
+
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+
+
+
+
+  <servlet>
+    <description>
+          login
+    </description>
+    <display-name>
+          login
+    </display-name>
+    <servlet-name>loginServlet</servlet-name>
+    <servlet-class>
+      jp.co.tcc.ecs.e_asproLogin.Login.LoginServlet
+    </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>loginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+
+  <!--
+    <servlet>
+      <servlet-name>CC021SearchProduct</servlet-name>
+      <servlet-class>
+        jp.co.tcc.ecs.e_asproLogin.CC021SearchProduct.SearchProductServlet
+      </servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>CC021SearchProduct</servlet-name>
+      <url-pattern>/CC021SearchProduct</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>CC030SearchCustomer</servlet-name>
+      <servlet-class>
+        jp.co.tcc.ecs.e_asproLogin.CC030SearchCustomer.SearchCustomerServlet
+      </servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>CC030SearchCustomer</servlet-name>
+      <url-pattern>/CC030SearchCustomer</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>CC031SearchZaiko</servlet-name>
+      <servlet-class>
+        jp.co.tcc.ecs.e_asproLogin.CC031SearchZaiko.SearchZaikoServlet
+      </servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>CC031SearchZaiko</servlet-name>
+      <url-pattern>/CC031SearchZaiko</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>CC040HanroList</servlet-name>
+      <servlet-class>
+        jp.co.tcc.ecs.e_asproLogin.CC040HanroList.HanroListServlet
+      </servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>CC040HanroList</servlet-name>
+      <url-pattern>/CC040HanroList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>CC900PostalCheck</servlet-name>
+      <servlet-class>
+        jp.co.tcc.ecs.e_asproLogin.CC900PostalCheck.PostalCheckServlet
+      </servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>CC900PostalCheck</servlet-name>
+      <url-pattern>/CC900PostalCheck</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <description>
+        menu
+      </description>
+      <display-name>
+        menu
+      </display-name>
+      <servlet-name>MenuServlet</servlet-name>
+      <servlet-class>
+        jp.co.tcc.ecs.e_asproLogin.HA070Menu.MenuServlet
+      </servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>MenuServlet</servlet-name>
+      <url-pattern>/menu</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <description>menu</description>
+      <display-name>menu</display-name>
+      <servlet-name>TopMenuServlet</servlet-name>
+      <servlet-class>jp.co.tcc.ecs.e_asproLogin.HA070Menu.TopMenuServlet
+      </servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>TopMenuServlet</servlet-name>
+      <url-pattern>/TopMenu</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>HA080PasswordEntry</servlet-name>
+      <servlet-class>
+        jp.co.tcc.ecs.e_asproLogin.HA080PasswordEntry.PasswordEntryServlet
+      </servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>HA080PasswordEntry</servlet-name>
+      <url-pattern>/passwordEntry</url-pattern>
+    </servlet-mapping>
+  -->
+  <filter>
+    <filter-name>baseFilter</filter-name>
+    <filter-class>
+      jp.co.tcc.ecs.e_asproComm.common.Base.CommBaseFilter
+    </filter-class>
+
+
+    <init-param>
+      <param-name>LOGIN_URI</param-name>
+      <param-value>/Login.jsp</param-value>
+    </init-param>
+
+
+  </filter>
+  <filter-mapping>
+    <filter-name>baseFilter</filter-name>
+    <url-pattern>/</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+
+</web-app>
